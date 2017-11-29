@@ -55,7 +55,6 @@ NSString *const STORAGE_TEMPORARY = @"TEMPORARY";
 
 + (BOOL)decodeLesson:(NSString*)relativePath inStorage:(NSString*)storage {
   NSURL *baseDir = [RNFileSystem baseDirForStorage:storage];
-  NSURL *fullPath = [baseDir URLByAppendingPathComponent:relativePath];
   BOOL decoded = NO;
 
   NSFileManager *filemgr;
@@ -65,11 +64,11 @@ NSString *const STORAGE_TEMPORARY = @"TEMPORARY";
 
   filemgr = [NSFileManager defaultManager];
 
-  if ([filemgr isWritableFileAtPath:fullPath]  == YES)
+  if ([filemgr isWritableFileAtPath:relativePath]  == YES)
   {
       NSLog (@"File is writable");
 
-      file = [NSFileHandle fileHandleForUpdatingAtPath:fullPath];
+      file = [NSFileHandle fileHandleForUpdatingAtPath:relativePath];
       if (file == nil)
           NSLog(@"Failed to open file");
       else

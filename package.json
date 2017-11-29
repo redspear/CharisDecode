@@ -14,7 +14,7 @@
   "keywords": [
     "react",
     "react-native",
-    "react-module",
+    "react-module"
   ],
   "peerDependencies": {
     "react": ">=15.3.1",
